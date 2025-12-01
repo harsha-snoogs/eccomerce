@@ -1,11 +1,24 @@
 import { ShoppingBag, User, Menu, X, Search } from "lucide-react";
 import { useState } from "react";
+import Helper from "../../common/utils";
+import React from "react";
+import SearchBarInput from "../ui/SearchBarInput";
 
-const NavBar = () => {
-
+interface NavBarProps {
+  setSearchText: React.Dispatch<React.SetStateAction<string>>;
+  setApi: React.Dispatch<React.SetStateAction<string>>;
+  searchText: string;
+}
+const NavBar = ({ setSearchText, setApi, searchText }: NavBarProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
+  const handleSearchClick = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key !== "Enter") return;
+    const endpoint = Helper.constructApiEndpoint(searchText, 1);
+    setApi(endpoint);
+  };
 
   return (
     <>
@@ -16,10 +29,13 @@ const NavBar = () => {
             className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-transparent text-gray-700 dark:text-gray-300 md:hidden hover:bg-gray-200/60 dark:hover:bg-gray-800/60"
             aria-label="Toggle Menu"
           >
-            {!isMenuOpen ? <Menu height={24} width={24} /> : <X height={24} width={24} />}
+            {!isMenuOpen ? (
+              <Menu height={24} width={24} />
+            ) : (
+              <X height={24} width={24} />
+            )}
           </button>
 
-          
           <div className="flex items-center gap-2 text-gray-900 dark:text-white">
             <svg
               className="h-6 w-6 text-primary"
@@ -62,14 +78,10 @@ const NavBar = () => {
             </a>
           </nav>
 
-         
           <div className="hidden md:flex flex-1 justify-center px-4">
             <div className="relative w-full max-w-md">
               <Search className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />
-              <input
-                className="block w-full rounded-full border border-gray-200 bg-gray-100 dark:border-gray-800 dark:bg-gray-900/50 py-2.5 pl-10 pr-4 text-sm text-gray-800 dark:text-gray-200 placeholder:text-gray-400 focus:border-primary focus:ring-primary"
-                placeholder="Search for products..."
-              />
+              <SearchBarInput searchText={searchText} handleSearchClick={handleSearchClick} setSearchText={setSearchText} />
             </div>
           </div>
 
@@ -94,10 +106,7 @@ const NavBar = () => {
         <div className="md:hidden px-4 py-2 border-t border-gray-200/50 dark:border-gray-800/50">
           <div className="relative w-full">
             <Search className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />
-            <input
-              className="block w-full rounded-full border border-gray-200 bg-gray-100 dark:border-gray-800 dark:bg-gray-900/50 py-2.5 pl-10 pr-4 text-sm text-gray-800 dark:text-gray-200 placeholder:text-gray-400 focus:border-primary focus:ring-primary"
-              placeholder="Search for products..."
-            />
+            <SearchBarInput searchText={searchText} handleSearchClick={handleSearchClick} setSearchText={setSearchText} />
           </div>
         </div>
       </header>
@@ -122,7 +131,7 @@ const NavBar = () => {
           <a
             className="text-base font-medium text-gray-900 dark:text-white hover:text-primary dark:hover:text-primary"
             href="#"
-            onClick={toggleMenu} 
+            onClick={toggleMenu}
           >
             New In
           </a>
