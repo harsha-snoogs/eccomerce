@@ -1,5 +1,5 @@
 import "./App.css";
-import SearchPage from "./components/blocks/searchPage";
+import SearchPage from "./components/blocks/searchResultPage";
 import NavBar from "./components/blocks/NavBar";
 import { useState } from "react";
 import Helper from "./common/utils";
@@ -14,7 +14,7 @@ function App() {
     const endpoint = Helper.constructApiEndpoint(searchText, newPage);
     setApi(endpoint);
   };
-  
+
   return (
     <>
       <div className="relative flex min-h-screen w-full flex-col">

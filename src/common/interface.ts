@@ -8,6 +8,7 @@ export interface Response {
 export interface SearchResponse {
   pagination: Pagination;
   results: ProductResult[];
+  breadcrumbs: BreadcrumbItem[];
 }
 
 export interface Pagination {
@@ -31,6 +32,10 @@ export interface ProductResult {
   url: string;
   description?: string;
   [key: string]: any;
+}
+
+export interface BreadcrumbItem {
+    [key: string]: any;
 }
 
 export interface CardProps {

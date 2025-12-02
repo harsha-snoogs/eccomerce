@@ -4,12 +4,14 @@ interface Props {
   currentPage: number;
   totalPages: number;
   onPageChange: (page: number) => void;
+  topPadding?: boolean;
 }
 
 export const Pagination = ({
   currentPage,
   totalPages,
   onPageChange,
+  topPadding = true,
 }: Props) => {
   if (totalPages <= 1) return null;
 
@@ -32,7 +34,7 @@ export const Pagination = ({
   const pages = createPages();
 
   return (
-    <div className="mt-12 flex items-center justify-center">
+    <div className={`${topPadding ? "mt-12" : ""} flex items-center justify-center`}>
       <button
         disabled={currentPage === 1}
         onClick={() => onPageChange(currentPage - 1)}

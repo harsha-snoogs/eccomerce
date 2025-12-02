@@ -26,7 +26,13 @@ export default function Card(props: CardProps) {
             </a>
           </h3>
           <p className="text-sm font-medium text-gray-900  shrink-0 pl-8">
-            <span className="text-red-500">${props.price}</span>
+            <span
+              className={
+                props.msrp && props.msrp > props.price ? "text-red-500" : ""
+              }
+            >
+              ${props.price}
+            </span>
             {props.msrp && props.msrp > props.price && (
               <span className="line-through pl-2">${props.msrp}</span>
             )}
