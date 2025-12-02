@@ -1,4 +1,4 @@
-import { ShoppingBag, User, Menu, X, Search } from "lucide-react";
+import {  User, Menu, X, Search, ShoppingCart } from "lucide-react";
 import { useState } from "react";
 import Helper from "../../common/utils";
 import React from "react";
@@ -96,9 +96,9 @@ const NavBar = ({ setSearchText, setApi, searchText }: NavBarProps) => {
               className="relative flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-transparent hover:bg-gray-200/60 dark:hover:bg-gray-800/60"
               aria-label="Shopping Bag"
             >
-              <ShoppingBag height={20} />
+             <ShoppingCart height={20} />
               <span className="absolute top-1 right-1 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-xs font-bold text-white">
-                2
+                
               </span>
             </button>
           </div>
