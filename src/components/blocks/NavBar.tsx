@@ -3,12 +3,10 @@ import { useEffect, useState } from "react";
 import Helper from "../../common/utils";
 import React from "react";
 import SearchBarInput from "../ui/SearchBarInput";
+import type { NavBarProps } from "../../common/interface";
 
-interface NavBarProps {
-  setSearchText: React.Dispatch<React.SetStateAction<string>>;
-  setApi: React.Dispatch<React.SetStateAction<string>>;
-  searchText: string;
-}
+
+
 const NavBar = ({ setSearchText, setApi, searchText }: NavBarProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -141,7 +139,6 @@ const NavBar = ({ setSearchText, setApi, searchText }: NavBarProps) => {
         </div>
       </header>
 
-      {/* Backdrop - appears only on mobile when menu is open */}
       {isMenuOpen && (
         <div
           className="fixed inset-0 z-50 bg-black/40 md:hidden"
@@ -149,8 +146,6 @@ const NavBar = ({ setSearchText, setApi, searchText }: NavBarProps) => {
           onClick={toggleMenu}
         />
       )}
-
-      {/* Slide-out menu (drawer) */}
       <aside
         role="dialog"
         aria-modal="true"

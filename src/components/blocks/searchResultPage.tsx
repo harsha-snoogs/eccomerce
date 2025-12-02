@@ -1,15 +1,12 @@
 import useFetch from "../../customHooks/useFetch";
-import type { SearchResponse } from "../../common/interface";
+import type { SearchPageProps, SearchResponse } from "../../common/interface";
 import Card from "../ui/Card";
 import CardSkeleton from "../ui/CardSkeleton";
 import NoState from "./NoDataFound";
 import { Pagination } from "../ui/Pagination";
 import { useEffect } from "react";
 
-interface SearchPageProps {
-  api: string;
-  setPage: (newPage: number) => void;
-}
+
 const searchPage = ({ api, setPage }: SearchPageProps) => {
   const { loading, response } = useFetch<SearchResponse>({ url: api });
 

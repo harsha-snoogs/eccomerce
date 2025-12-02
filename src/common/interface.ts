@@ -35,7 +35,7 @@ export interface ProductResult {
 }
 
 export interface BreadcrumbItem {
-    [key: string]: any;
+  filterValue: string;
 }
 
 export interface CardProps {
@@ -44,4 +44,28 @@ export interface CardProps {
   description?: string;
   price: string;
   msrp: string;
+}
+
+export interface NavBarProps {
+  setSearchText: React.Dispatch<React.SetStateAction<string>>;
+  setApi: React.Dispatch<React.SetStateAction<string>>;
+  searchText: string;
+}
+export interface PaginationProps {
+  currentPage: number;
+  totalPages: number;
+  onPageChange: (page: number) => void;
+  topPadding?: boolean;
+}
+export interface SearchBarInputProps {
+  searchText: string;
+  handleSearchClick: (e: React.KeyboardEvent<HTMLInputElement>) => void;
+  setSearchText: React.Dispatch<React.SetStateAction<string>>;
+}
+export interface FetchProps {
+  url: string;
+}
+export interface SearchPageProps {
+  api: string;
+  setPage: (newPage: number) => void;
 }

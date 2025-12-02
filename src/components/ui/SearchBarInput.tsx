@@ -1,8 +1,4 @@
-interface SearchBarInputProps {
-  searchText: string;
-  handleSearchClick: (e: React.KeyboardEvent<HTMLInputElement>) => void;
-  setSearchText: React.Dispatch<React.SetStateAction<string>>;
-}
+import type { SearchBarInputProps } from "../../common/interface";
 
 const SearchBarInput = ({
   searchText,

@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
+import type { FetchProps } from "../common/interface";
 
-interface Props {
-  url: string;
-}
-const useFetch = <T>({ url }: Props) => {
+
+const useFetch = <T>({ url }: FetchProps) => {
   const [loading, setLoading] = useState(false);
   const [response, setResponse] = useState<T | null>(null);
   const [error, setError] = useState< Error | null>(null);

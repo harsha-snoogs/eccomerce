@@ -1,18 +1,12 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
-
-interface Props {
-  currentPage: number;
-  totalPages: number;
-  onPageChange: (page: number) => void;
-  topPadding?: boolean;
-}
+import type { PaginationProps } from "../../common/interface";
 
 export const Pagination = ({
   currentPage,
   totalPages,
   onPageChange,
   topPadding = true,
-}: Props) => {
+}: PaginationProps) => {
   if (totalPages <= 1) return null;
 
   const createPages = () => {
@@ -34,7 +28,11 @@ export const Pagination = ({
   const pages = createPages();
 
   return (
-    <div className={`${topPadding ? "mt-12" : ""} flex items-center justify-center`}>
+    <div
+      className={`${
+        topPadding ? "mt-12" : ""
+      } flex items-center justify-center`}
+    >
       <button
         disabled={currentPage === 1}
         onClick={() => onPageChange(currentPage - 1)}
