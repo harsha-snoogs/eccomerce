@@ -38,7 +38,7 @@ export const Pagination = ({
       <button
         disabled={currentPage === 1}
         onClick={() => onPageChange(currentPage - 1)}
-        className="flex h-10 w-10 items-center justify-center rounded-full text-gray-500 hover:bg-gray-200/60 disabled:opacity-40 dark:hover:bg-gray-800/60"
+        className="flex h-10 w-10 items-center justify-center rounded-full text-gray-500 hover:bg-gray-200/60 disabled:opacity-40 "
       >
         <span className="text-xl">
           <ChevronLeft />
@@ -49,7 +49,7 @@ export const Pagination = ({
         p === "..." ? (
           <span
             key={idx}
-            className="text-sm font-medium flex h-10 w-10 items-center justify-center rounded-full text-gray-500 dark:text-gray-400"
+            className="text-sm font-medium flex h-10 w-10 items-center justify-center rounded-full text-gray-500 "
           >
             …
           </span>
@@ -60,7 +60,7 @@ export const Pagination = ({
             className={
               currentPage === p
                 ? "text-sm font-bold flex h-10 w-10 items-center justify-center rounded-full bg-primary/20 text-primary"
-                : "text-sm font-medium flex h-10 w-10 items-center justify-center rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-200/60 dark:hover:bg-gray-800/60"
+                : "text-sm font-medium flex h-10 w-10 items-center justify-center rounded-full text-gray-600  hover:bg-gray-200/60 "
             }
           >
             {p}
@@ -71,7 +71,7 @@ export const Pagination = ({
       <button
         disabled={currentPage === totalPages}
         onClick={() => onPageChange(currentPage + 1)}
-        className="flex h-10 w-10 items-center justify-center rounded-full text-gray-500 hover:bg-gray-200/60 disabled:opacity-40 dark:hover:bg-gray-800/60"
+        className="flex h-10 w-10 items-center justify-center rounded-full text-gray-500 hover:bg-gray-200/60 disabled:opacity-40 "
       >
         <span className="text-xl">
           <ChevronRight />

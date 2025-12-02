@@ -12,7 +12,7 @@ export default function Card(props: CardProps) {
         <div className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
 
         <div className="absolute bottom-3 left-0 right-0 hidden md:flex justify-center opacity-0 translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 pointer-events-none">
-          <button className="pointer-events-auto z-10 w-[80%] rounded-full border border-transparent bg-white px-4 py-2 text-sm font-semibold text-gray-900 hover:bg-gray-100 dark:bg-gray-900 dark:text-white dark:hover:bg-gray-800">
+          <button className="pointer-events-auto z-10 w-[80%] rounded-full border border-transparent bg-white px-4 py-2 text-sm font-semibold text-gray-900 hover:bg-gray-100">
             Add to Cart
           </button>
         </div>
@@ -38,7 +38,7 @@ export default function Card(props: CardProps) {
             )}
           </p>
         </div>
-        <button className="mt-3 flex w-full rounded-full border border-transparent bg-gray-900 px-4 py-2 text-sm font-semibold text-white hover:bg-gray-800 dark:bg-gray-100 dark:text-gray-900 dark:hover:bg-gray-200 md:hidden align-center">
+        <button className="mt-3 flex w-full rounded-full border border-transparent bg-gray-900 px-4 py-2 text-sm font-semibold text-white hover:bg-gray-800  md:hidden align-center">
           Add to Cart
         </button>
       </div>

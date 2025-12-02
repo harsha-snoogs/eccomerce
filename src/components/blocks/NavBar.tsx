@@ -51,7 +51,7 @@ const NavBar = ({ setSearchText, setApi, searchText }: NavBarProps) => {
             )}
           </button>
 
-          <div className="flex items-center gap-2 text-gray-900 dark:text-white">
+          <div className="flex items-center gap-2 text-gray-900">
             <svg
               className="h-6 w-6 text-primary"
               fill="none"
@@ -181,21 +181,21 @@ const NavBar = ({ setSearchText, setApi, searchText }: NavBarProps) => {
             New In
           </a>
           <a
-            className="text-base font-medium text-gray-900 dark:text-white hover:text-primary dark:hover:text-primary"
+            className="text-base font-medium text-gray-900  hover:text-primary "
             href="#"
             onClick={toggleMenu}
           >
             Clothing
           </a>
           <a
-            className="text-base font-medium text-gray-900 dark:text-white hover:text-primary dark:hover:text-primary"
+            className="text-base font-medium text-gray-900  hover:text-primary "
             href="#"
             onClick={toggleMenu}
           >
             Accessories
           </a>
           <a
-            className="text-base font-medium text-gray-900 dark:text-white hover:text-primary dark:hover:text-primary"
+            className="text-base font-medium text-gray-900  hover:text-primary "
             href="#"
             onClick={toggleMenu}
           >
