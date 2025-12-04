@@ -9,6 +9,12 @@ export interface SearchResponse {
   pagination: Pagination;
   results: ProductResult[];
   breadcrumbs: BreadcrumbItem[];
+  sorting: Sorting;
+  query: Query;
+}
+
+export interface Query {
+  original: string;
 }
 
 export interface Pagination {
@@ -48,8 +54,8 @@ export interface CardProps {
 
 export interface NavBarProps {
   setSearchText: React.Dispatch<React.SetStateAction<string>>;
-  setApi: React.Dispatch<React.SetStateAction<string>>;
   searchText: string;
+  handleTextSearch: () => void;
 }
 export interface PaginationProps {
   currentPage: number;
@@ -68,4 +74,29 @@ export interface FetchProps {
 export interface SearchPageProps {
   api: string;
   setPage: (newPage: number) => void;
+  setSort: (sort: SortingOption) => void;
+}
+
+export interface SortingOption {
+  direction: "asc" | "desc";
+  field: string;
+  label: string;
+  active?: number;
+}
+
+export interface Sorting {
+  options: SortingOption[];
+}
+
+export interface DropDownOption {
+  label: string;
+  value: string;
+}
+
+export interface SelectDropdownProps {
+  label?: string;
+  options: DropDownOption[];
+  value: string;
+  onChange: (value: string) => void;
+  className?: string;
 }

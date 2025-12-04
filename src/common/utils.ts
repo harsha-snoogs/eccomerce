@@ -1,9 +1,15 @@
 import { endpoints } from "../service/api";
+import type { SortingOption } from "./interface";
+
 export const Helper = {
-  constructApiEndpoint(query: string, page: number =1): string {
+  constructApiEndpoint(
+    query: string,
+    page: number = 1,
+    sort?: SortingOption
+  ): string {
     const searchedQuery = query ?? "";
-    const endpoint = `${endpoints.searchApi}&q=${searchedQuery}&page=${page}`;
-    return endpoint;
+    const sortParam = sort ? `&sort.${sort.field}=${sort.direction}` : "";
+    return `${endpoints.searchApi}&q=${searchedQuery}&page=${page}${sortParam}`;
   },
 };
 

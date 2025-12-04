@@ -1,13 +1,12 @@
 import { User, Menu, X, Search, ShoppingCart, Navigation } from "lucide-react";
 import { useEffect, useState } from "react";
-import Helper from "../../common/utils";
 import React from "react";
 import SearchBarInput from "../ui/SearchBarInput";
 import type { NavBarProps } from "../../common/interface";
 
 
 
-const NavBar = ({ setSearchText, setApi, searchText }: NavBarProps) => {
+const NavBar = ({ setSearchText, handleTextSearch, searchText }: NavBarProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => setIsMenuOpen((s) => !s);
@@ -29,8 +28,7 @@ const NavBar = ({ setSearchText, setApi, searchText }: NavBarProps) => {
       | React.MouseEvent<SVGElement, MouseEvent>
   ) => {
     if ("key" in e && e.key !== "Enter") return;
-    const endpoint = Helper.constructApiEndpoint(searchText, 1);
-    setApi(endpoint);
+    handleTextSearch();
   };
 
   return (
